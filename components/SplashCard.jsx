@@ -1,7 +1,7 @@
 import { View, Text, Image, Pressable } from "react-native";
 import React from "react";
 
-export default function SplashCard({ image, name }) {
+export default function SplashCard({ image, name, id }) {
   const discounts = [50, 70, 90, 40];
   const random = Math.floor(Math.random() * 3);
   return (
@@ -14,12 +14,12 @@ export default function SplashCard({ image, name }) {
       <View className="items-center justify-center gap-y-4">
         <Image
           style={{ objectFit: "contain" }}
-          className="w-[300px] h-[300px] object-contain"
+          className="w-[250px] h-[300px] object-contain"
           source={{ uri: image }}
         />
         <Text className="text-center px-6">{name}</Text>
       </View>
-      <Pressable className="align-start bg-red-500">
+      <Pressable className="bg-green-300 self-start p-2 mx-auto mt-6 rounded-md">
         <Text>Go to Product</Text>
       </Pressable>
     </View>

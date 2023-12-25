@@ -1,11 +1,20 @@
-import { View, Text, Image, Dimensions, SafeAreaView } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  Dimensions,
+  SafeAreaView,
+  Pressable,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import Carousel from "react-native-snap-carousel";
 import SplashCard from "../components/SplashCard";
 import { AntDesign } from "@expo/vector-icons";
 
-export default function SplashScreen() {
+export default function SplashScreen({ navigation }) {
   const width = Dimensions.get("window").width;
+  const height = Dimensions.get("window").height;
+
   const [data, setData] = useState([]);
 
   async function getData() {
@@ -21,18 +30,26 @@ export default function SplashScreen() {
     <View className="bg-[#D55209] w-full h-full items-center justify-center">
       <SafeAreaView className="w-full h-full gap-y-12">
         <View className="items-end px-12">
-          <AntDesign name="close" size={24} color="white" />
+          <Pressable onPress={() => navigation.navigate("Homepage")}>
+            <AntDesign name="close" size={24} color="white" />
+          </Pressable>
         </View>
-        <View className="">
+        <View className="h-full">
           <Carousel
             data={data}
             layout="tinder"
-            layoutCardOffset={`20`}
+            layoutCardOffset={20}
             sliderWidth={width}
+            sliderHeight={height}
             itemWidth={300}
             windowSize={1}
             renderItem={({ item }) => (
-              <SplashCard image={item.image} name={item.title} />
+              <SplashCard
+                key={item.id}
+                id={item.id}
+                image={item.image}
+                name={item.title}
+              />
             )}
           />
         </View>
