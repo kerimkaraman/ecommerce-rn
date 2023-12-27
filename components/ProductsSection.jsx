@@ -19,6 +19,7 @@ export default function ProductsSection({ products, categoryText }) {
             return (
               <ProductCard
                 key={product.id}
+                id={product.id}
                 title={product.title}
                 image={product.images[0]}
                 price={product.price}

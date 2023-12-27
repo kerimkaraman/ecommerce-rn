@@ -1,12 +1,16 @@
 import { View, Text, Pressable, Image, Dimensions } from "react-native";
 import React from "react";
 import { Rating } from "@kolking/react-native-rating";
+import { useNavigation } from "@react-navigation/native";
 
 export default function ProductCard({ image, id, title, price, rating }) {
   const width = Dimensions.get("window").width;
   const height = Dimensions.get("window").height;
+  const nav = useNavigation();
+
   return (
     <Pressable
+      onPress={() => nav.navigate("ProductPage", { id: id })}
       className="m-1 rounded-md border border-gray-300 bg-white shadow-2xl"
       style={{ width: width / 2.2, height: height / 4 }}
     >

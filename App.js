@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import Homepage from "./screens/Homepage";
 import SplashScreen from "./screens/SplashScreen";
 import SearchScreen from "./screens/SearchScreen";
+import ProductPage from "./screens/ProductPage";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -32,6 +33,13 @@ export default function App() {
             headerShown: false,
           }}
           component={SearchScreen}
+        />
+        <Stack.Screen
+          name="ProductPage"
+          options={{
+            headerShown: false,
+          }}
+          component={ProductPage}
         />
       </Stack.Navigator>
     </NavigationContainer>
