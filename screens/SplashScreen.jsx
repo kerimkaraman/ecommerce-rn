@@ -18,9 +18,9 @@ export default function SplashScreen({ navigation }) {
   const [data, setData] = useState([]);
 
   async function getData() {
-    fetch("https://fakestoreapi.com/products?limit=10")
+    fetch("https://dummyjson.com/products?limit=10")
       .then((res) => res.json())
-      .then((json) => setData(json));
+      .then((json) => setData(json.products));
   }
   useEffect(() => {
     getData();
@@ -47,7 +47,7 @@ export default function SplashScreen({ navigation }) {
               <SplashCard
                 key={item.id}
                 id={item.id}
-                image={item.image}
+                image={item.images[0]}
                 name={item.title}
               />
             )}

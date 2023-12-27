@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import Homepage from "./screens/Homepage";
 import SplashScreen from "./screens/SplashScreen";
+import SearchScreen from "./screens/SearchScreen";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -24,6 +25,13 @@ export default function App() {
           }}
           name="Homepage"
           component={Homepage}
+        />
+        <Stack.Screen
+          name="SearchScreen"
+          options={{
+            headerShown: false,
+          }}
+          component={SearchScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
