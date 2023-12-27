@@ -14,7 +14,6 @@ import { AntDesign } from "@expo/vector-icons";
 export default function SplashScreen({ navigation }) {
   const width = Dimensions.get("window").width;
   const height = Dimensions.get("window").height;
-
   const [data, setData] = useState([]);
 
   async function getData() {
